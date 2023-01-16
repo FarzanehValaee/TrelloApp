@@ -6,7 +6,7 @@ export default function TrelloCard({card}) {
    {/* {console.log(card)} */}
   return (
           <Card 
-          sx={{px:2,py:1,my:1,boxShadow:0}}
+          sx={{px:2,py:1,my:1}}
           key={card.id}
           >
             {card.text}
