@@ -17,6 +17,7 @@ export default function TrelloList({title,cards}) {
             {
               cards.map(card =><TrelloCard card={card}/>)
             }
+            
           </container>
           <TrelloActionButton/>
     </div>
@@ -28,7 +29,10 @@ const styles={
                     borderRadius:3,
                     width:300,
                     padding:5,
-                    margin:2
+                    margin:2,
+                    marginTop:0,
+                    height:'100%',
+                    
           },
           header:{
             margin:5,

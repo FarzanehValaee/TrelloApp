@@ -9,7 +9,7 @@ import TextareaAutosize from '@mui/base/TextareaAutosize';
 
 export default class TrelloActionButton extends Component {
           state={
-                    formOpen: true,
+                    formOpen: false,
                     text:"",
           };
 
@@ -56,15 +56,25 @@ export default class TrelloActionButton extends Component {
                     )
           }
           renderForm=()=>{
-                    const list = this.props;
+                    const {list} = this.props;
                     const placeholder = 
                     list?
-                    "Enter list title...":
-                    "Enter a title for this card...";
-                    const buttonTitle=list? "Add list":"Add Card";
+                    "Enter list title..."
+                    :"Enter a title for this card...";
+                    const buttonTitle=
+                    list? 
+                    "Add list"
+                    :"Add Card";
 
                     return (
-                              <div>
+                              <div
+                               style={{
+                                        backgroundColor:'rgb(223, 227, 230)',
+                                        padding:5,
+                                        borderRadius:3,
+                                        height:'100%'
+                               }}
+                              >
                                 <Card
                                   style={{
                                         overflow:'visible',
@@ -76,7 +86,7 @@ export default class TrelloActionButton extends Component {
                                         <TextareaAutosize 
                                          placeholder={placeholder}
                                          autoFocus
-                                        //  onBlur={this.closeForm}
+                                         onBlur={this.closeForm}
                                          value={this.state.text}
                                          onChange={this.handleInputChange}
                                          style={{
@@ -104,7 +114,7 @@ export default class TrelloActionButton extends Component {
                                            textTransform: 'none'
                                          }}
                                          >
-                                          Add card
+                                          {buttonTitle}
 
                                         </Button>
                                         <CloseIcon 
@@ -119,11 +129,11 @@ export default class TrelloActionButton extends Component {
                                                             marginLeft: 'auto'
                                                   }}
                                         >
-                                                  <MoreHorizIcon 
+                                        <MoreHorizIcon 
                                                   style={{
                                                             color:"#6b778c"
                                                   }}
-                                                  />
+                                        />
 
                                         </div>
                                 </div>
