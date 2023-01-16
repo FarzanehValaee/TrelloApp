@@ -1,3 +1,8 @@
+import { CONSTANTS } from "../actions";
+
+let listID=3;
+let cardID=2;
+
 const initialState =[
           {
                     title: 'To Do',
@@ -42,6 +47,39 @@ const initialState =[
 export default function listsReducer(state= initialState,action) {
 
           switch(action.type) {
+                    case CONSTANTS.ADDList:
+                              const newList ={
+                                        title:action.payload,
+                                        cards:[],
+                                        id: listID
+                              }
+                              listID++ 
+                              return [...state,newList]
+
+                    case CONSTANTS.ADDCARD:
+                              const newCard ={
+                                        text:action.payload.text,
+                                        id: cardID
+                              }
+                              cardID++ 
+                              const newState=state.map(list =>{
+                                        if(list.id === action.payload.listID){
+                                                  // console.log(newCard)
+                                                  return{
+                                                            ...list,
+                                                            cards:[...list.cards,newCard]
+                                                  }
+                                        }else{
+                                                  return list
+                                        }
+
+                              })
+                              return newState
+
+
+
+
+
                     default:
                               return state;
           }

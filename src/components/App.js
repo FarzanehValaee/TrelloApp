@@ -14,10 +14,13 @@ class App extends Component {
         style={styles.cardLists}
         >
           {
-            lists.map(list => <TrelloList 
+            lists.map(list => 
+            <TrelloList 
               title={list.title} 
               cards={list.cards} 
-              />)
+              id={list.id}
+              /> 
+              )
           }
           <TrelloActionButton 
           list 

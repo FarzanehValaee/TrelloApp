@@ -2,7 +2,7 @@ import React from 'react';
 import TrelloCard from './TrelloCard';
 import TrelloActionButton from './TrelloActionButton'
 
-export default function TrelloList({title,cards}) {
+export default function TrelloList({title,id,cards}) {
   return (
     <div 
         className='TrelloList'
@@ -19,7 +19,7 @@ export default function TrelloList({title,cards}) {
             }
             
           </container>
-          <TrelloActionButton/>
+          <TrelloActionButton listID={id}/>
     </div>
   )
 }

@@ -6,8 +6,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 // import TextareaAutosize from '@mui/base/TextareaAutosize';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
+import {connect} from "react-redux";
+import { addList,addCard } from '../actions';
 
-export default class TrelloActionButton extends Component {
+class TrelloActionButton extends Component {
           state={
                     formOpen: false,
                     text:"",
@@ -28,6 +30,26 @@ export default class TrelloActionButton extends Component {
                               text: e.target.value
                     })
           }
+          handleAddList = ()=>{
+            const {dispatch}= this.props;
+            const {text}= this.state;
+            if(text){
+              dispatch(addList(text));
+            }
+            return ;
+          }
+          handleAddCard = ()=>{
+            const {dispatch , listID}= this.props;
+            const {text}= this.state;
+            // console.log(listID);
+            if(text){
+              // console.log(text);
+              // console.log(listID);
+              dispatch(addCard(listID,text));
+            }
+            return ;
+          }
+          
 
           renderAddButton=()=> {
                     const {list}=this.props;
@@ -113,6 +135,11 @@ export default class TrelloActionButton extends Component {
                                          style={{
                                            textTransform: 'none'
                                          }}
+                                         //it runs before onBlur
+                                         onMouseDown={list ? 
+                                          this.handleAddList
+                                          :this.handleAddCard
+                                        }
                                          >
                                           {buttonTitle}
 
@@ -157,3 +184,5 @@ const aditionalStyles={
           }
           
 }
+
+export default connect ()(TrelloActionButton)
