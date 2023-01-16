@@ -1,7 +1,7 @@
 import React from 'react';
 import TrelloCard from './TrelloCard';
 
-export default function TrelloList({title}) {
+export default function TrelloList({title,cards}) {
   return (
     <div 
         className='TrelloList'
@@ -13,19 +13,22 @@ export default function TrelloList({title}) {
                     {title}
           </h4>
           <container>
-                    <TrelloCard/>
+            {
+              cards.map(card =><TrelloCard card={card}/>)
+            }
           </container>
     </div>
   )
 }
 const styles={
           container: {
-                    backgroundColor:"#ccc",
+                    backgroundColor:"#dfe3e6",
                     borderRadius:3,
                     width:300,
                     padding:5,
+                    margin:2
           },
           header:{
-            paddingLeft:17,
-          }
+            paddingLeft:16,
+          },
 }
