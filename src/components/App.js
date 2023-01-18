@@ -4,8 +4,11 @@ import { connect } from "react-redux";
 import TrelloActionButton from "./TrelloActionButton";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
+import Header from "./Header";
+import '../assets/style.css';
 
 import { sort } from "../actions";
+import { Container } from "react-trello";
 
 const ListsContainer = styled.div`
   display: flex;
@@ -36,7 +39,8 @@ class App extends Component {
     const { lists } = this.props;
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <h2>Trello</h2>
+        <Header />
+        <div className="container">
         <Droppable droppableId="all-lists" direction="horizontal" type="list">
           {provided => (
             <ListsContainer
@@ -57,6 +61,7 @@ class App extends Component {
             </ListsContainer>
           )}
         </Droppable>
+        </div>
       </DragDropContext>
     );
   }
