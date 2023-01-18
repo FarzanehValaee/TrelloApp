@@ -59,7 +59,7 @@ class TrelloActionButton extends Component {
                     const buttonText= list? "Add another list":"Add a card";
                     const buttonTextOpacity= list? 1:0.5;
                     const buttonTextColor= list? "white":"inherit";
-                    const buttonTextBackground= list? "rgba(0,0,0,.15)":"inherit";
+                    const buttonTextBackground= list? "#d881ab":"inherit";
                     return(
                           <div
                             style={{
