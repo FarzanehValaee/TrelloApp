@@ -2,31 +2,42 @@ import React, { Component } from 'react';
 import TrelloList from './TrelloList';
 import {connect} from 'react-redux';
 import TrelloActionButton from './TrelloActionButton';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 class App extends Component {
+  onDragEnd =() => {
+
+  }
   render() {
     const {lists} = this.props;
     return (
-        <div className="App">
-        <h2>Trello</h2>
-        <div 
-        className='cardLists'
-        style={styles.cardLists}
+        <DragDropContext
+                onDragEnd={
+                  this.onDragEnd
+                }
+          
         >
-          {
-            lists.map(list => 
-            <TrelloList 
-              title={list.title} 
-              cards={list.cards} 
-              id={list.id}
-              /> 
-              )
-          }
-          <TrelloActionButton 
-          list 
-          />
+          <div className="App">
+              <h2>Trello</h2>
+              <div 
+              className='cardLists'
+              style={styles.cardLists}
+              >
+                {
+                  lists.map(list => 
+                  <TrelloList 
+                    title={list.title} 
+                    cards={list.cards} 
+                    id={list.id}
+                    /> 
+                    )
+                }
+                <TrelloActionButton 
+                list 
+                />
+              </div>
         </div>
-      </div>
+      </DragDropContext>
     )
   }
 }

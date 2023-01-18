@@ -34,6 +34,7 @@ class TrelloActionButton extends Component {
             const {dispatch}= this.props;
             const {text}= this.state;
             if(text){
+              this.setState({text:""})
               dispatch(addList(text));
             }
             return ;
@@ -43,6 +44,7 @@ class TrelloActionButton extends Component {
             const {text}= this.state;
             // console.log(listID);
             if(text){
+              this.setState({text:""})
               // console.log(text);
               // console.log(listID);
               dispatch(addCard(listID,text));
