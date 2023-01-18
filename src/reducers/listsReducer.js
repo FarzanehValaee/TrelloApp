@@ -5,41 +5,35 @@ let cardID = 6;
 
 const initialState = [
   {
-    title: "Last Episode",
+    title: "To Do",
     id: `list-${0}`,
     cards: [
       {
         id: `card-${0}`,
-        text: "we created a static list and a static card"
-      },
-      {
-        id: `card-${1}`,
-        text: "we used a mix between material UI React and styled components"
+        text: "Question Pool"
       }
     ]
   },
   {
-    title: "This Episode",
+    title: "Doing",
     id: `list-${1}`,
     cards: [
       {
-        id: `card-${2}`,
-        text: "we will create our first reducer"
-      },
-      {
-        id: `card-${3}`,
-        text: "and render many cards on our list with static data"
-      },
-      {
-        id: `card-${4}`,
-        text:
-          "we will also make some little changes I forgot in the last episode (link tags for roboto font and icons,..)"
-      },
-      {
-        id: `card-${5}`,
-        text:
-          "we will also make some little changes I forgot in the last episode (link tags for roboto font and icons,..)"
+        id: `card-${1}`,
+        text: "Create Team Sheet"
       }
+
+    ]
+  },
+  {
+    title: "Done",
+    id: `list-${2}`,
+    cards: [
+      {
+        id: `card-${2}`,
+        text: "Salary Sheet"
+      }
+
     ]
   }
 ];
