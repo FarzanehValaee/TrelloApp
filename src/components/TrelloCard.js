@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
+import DropDownMenu from "./DropDownMenu";
 
 const CardContainer = styled.div`
   margin: 0 0 8px 0;
@@ -20,7 +21,26 @@ const TrelloCard = ({ text, id, index }) => {
         >
           <Card>
             <CardContent>
-              <Typography>{text}</Typography>
+              <Typography>
+                <div
+                 style={{ 
+                  display:'flex', 
+                  alignItems: 'center'
+                 }}
+                >
+                    <span>
+                      {text}
+                    </span>
+                    <span
+                     style={{ 
+                      marginLeft:'auto'
+                     }}
+                    >
+                      <DropDownMenu />
+                    </span>
+                </div>
+
+              </Typography>
             </CardContent>
           </Card>
         </CardContainer>
