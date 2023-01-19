@@ -37,6 +37,7 @@ class App extends Component {
 
   render() {
     const { lists } = this.props;
+    
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Header />
