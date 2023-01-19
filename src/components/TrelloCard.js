@@ -15,11 +15,13 @@ const progressColor = [
   '#ef7564',
 ];
 
-const TrelloCard = ({ text, id, index }) => {
+const TrelloCard = ({ text, id, index, tag}) => {
 
-  const [progress, setProgress] = React.useState("Hello World");
+  const [progress, setProgress] = React.useState(tag);
   const chooseMessage = (progresslevel) => {
     setProgress(progresslevel);
+    tag=progress;
+    // console.log(`progress:${progress} , tag:${tag}`);
   };
 
   return (

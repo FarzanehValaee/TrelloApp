@@ -10,7 +10,8 @@ const initialState = [
     cards: [
       {
         id: `card-${0}`,
-        text: "Question Pool"
+        text: "Question Pool",
+        tag:0
       }
     ]
   },
@@ -20,7 +21,8 @@ const initialState = [
     cards: [
       {
         id: `card-${1}`,
-        text: "Create Team Sheet"
+        text: "Create Team Sheet",
+        tag:1
       }
 
     ]
@@ -31,7 +33,8 @@ const initialState = [
     cards: [
       {
         id: `card-${2}`,
-        text: "Salary Sheet"
+        text: "Salary Sheet",
+        tag:2
       }
 
     ]
@@ -52,7 +55,8 @@ const listsReducer = (state = initialState, action) => {
     case CONSTANTS.ADD_CARD: {
       const newCard = {
         text: action.payload.text,
-        id: `card-${cardID}`
+        id: `card-${cardID}`,
+        tag:1
       };
       cardID += 1;
 
