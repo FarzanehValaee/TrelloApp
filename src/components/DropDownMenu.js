@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRef } from "react";
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -12,7 +13,9 @@ const progressLevel = [
 
 const ITEM_HEIGHT = 48;
 
-export default function DropDownMenu() {
+
+
+export default function DropDownMenu({ chooseMessage }) {
   const [progress, setProgress] = React.useState(null);
   const open = Boolean(progress);
   const handleClick = (event) => {
@@ -49,8 +52,12 @@ export default function DropDownMenu() {
           },
         }}
       >
-        {progressLevel.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+        {progressLevel.map((option,index) => (
+          <MenuItem 
+          key={option} 
+          selected={option === 'Pyxis'} 
+          onClick={() => chooseMessage(index)}
+          >
             {option}
           </MenuItem>
         ))}

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
@@ -9,8 +9,19 @@ import DropDownMenu from "./DropDownMenu";
 const CardContainer = styled.div`
   margin: 0 0 8px 0;
 `;
+const progressColor = [
+  '#5ba4cf',
+  '#ffffff',
+  '#ef7564',
+];
 
 const TrelloCard = ({ text, id, index }) => {
+
+  const [progress, setProgress] = React.useState("Hello World");
+  const chooseMessage = (progresslevel) => {
+    setProgress(progresslevel);
+  };
+
   return (
     <Draggable draggableId={String(id)} index={index}>
       {provided => (
@@ -20,12 +31,16 @@ const TrelloCard = ({ text, id, index }) => {
           ref={provided.innerRef}
         >
           <Card>
-            <CardContent>
+            <CardContent
+             style={{
+              backgroundColor:`${progressColor[progress]}`
+             }}
+            >
               <Typography>
                 <div
                  style={{ 
                   display:'flex', 
-                  alignItems: 'center'
+                  alignItems: 'center',
                  }}
                 >
                     <span>
@@ -36,7 +51,7 @@ const TrelloCard = ({ text, id, index }) => {
                       marginLeft:'auto'
                      }}
                     >
-                      <DropDownMenu />
+                      <DropDownMenu chooseMessage={chooseMessage}/>
                     </span>
                 </div>
 
